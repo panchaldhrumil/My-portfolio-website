@@ -1,0 +1,28 @@
+.content{
+    max-width: 60%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.Aboutcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    position: absolute;
+    top: 50%;
+   z-index: 10;
+   font-weight: 900;
+   color: white;
+   background: none;
+   margin-top: 15px;
+   margin-bottom: 25px;
+
+}
+
+@media screen and (max-width :325px){
+    .content{
+        max-width: 95vw;
+    }
+}

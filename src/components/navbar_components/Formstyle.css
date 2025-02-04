@@ -1,0 +1,30 @@
+labels{
+    color:#E6F1FF;
+    margin-bottom: 0.5rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding:4rem 1 rem ;
+    margin: auto;
+    /* max-width: 600px; */
+    position: absolute;
+    top: 35%;
+    width: 100%;
+}
+
+
+
+form input, form textarea{
+    margin-bottom: 1rem;
+    padding: 10px 18px;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #E6F1FF ;
+
+}

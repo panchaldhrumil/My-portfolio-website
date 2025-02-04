@@ -1,0 +1,33 @@
+.footcontainer{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 200px;
+    align-items: center;
+    max-height: 400px;
+    background-color: #0A192F;
+    margin-left: 0;
+}
+
+.container_mob{
+    flex-direction: column;
+    gap: 20px;
+}
+
+.icon-link:hover {
+    transform: scale(1.2); 
+     /* Increase size on hover */
+  }
+
+@media screen and (max-width:640px) {
+    container{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    li{
+        justify-content: center;
+        max-width: 90vw;
+        align-items: center;
+
+    }
+}

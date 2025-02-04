@@ -1,0 +1,44 @@
+.row{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: -3;
+    transition: 0.3sec;
+}
+
+.flex{display: flex;}
+
+.column{
+    /* display: flex;
+    flex-direction: column; */
+   left:0;
+}
+
+.row-container {
+    display: flex;
+    align-items: center; /* Vertically center items in row */
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right in column */
+}
+
+.sidenav{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+@media(min-width :1024px){
+    .navul{
+        /* display: flex; */
+        background-color: white;
+    }
+}
