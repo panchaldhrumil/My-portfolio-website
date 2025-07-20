@@ -2,7 +2,7 @@ import './Herosection.css'
 import React from 'react'
 import backgroundimg from '../../assets/background_img.jpg'
 import { Link } from 'react-router-dom';
-import professional from '../../assets/professional_pic.png'
+import professional from '../../assets/professional_pic.jpg'
 
 
 
