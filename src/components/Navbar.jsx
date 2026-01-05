@@ -31,7 +31,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div style={{display:'flex' ,padding:'10px', justifyContent:'space-between' ,height:'10%',width:'100vw',position:'fixed',zIndex:'20',backgroundColor:'#0A192F' , top:'0px'  }}  >
+    <div style={{display:'flex' ,padding:'10px', justifyContent:'space-between' ,height:'6%',width:'100vw',position:'fixed',zIndex:'20',backgroundColor:'#0A192F' , top:'0px'  }}  >
       {/* <nav style={{width:'100%' , height:'10%' ,position:'fixed',top:'0px' , display:'flex',justifyContent:'space-around' ,margin:'0px'  }} >
           <div className="left" style={{position:'fixed',left:'15px',margin:'0px'}}><h3>Portfolio</h3></div>
           <div className="right" style={{display:'flex',marginTop:'0px',marginRight:'200px',columnGap:'15px' ,position:'fixed' ,right:'20px' }} >
@@ -43,7 +43,7 @@ const Navbar = () => {
       </nav> */}
       <div>
         <Link to={"/"} >
-          <h1 style={{fontFamily:'outfit',color: '#E6F1FF '}}>Portfolio</h1>
+          <h1 style={{fontFamily:'outfit',fontSize: '35px', color: '#E6F1FF '}}>Dhrumil's Portfolio</h1>
         </Link>
       </div>
 

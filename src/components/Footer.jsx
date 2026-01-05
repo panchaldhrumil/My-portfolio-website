@@ -43,9 +43,9 @@ const Footer = () => {
            <ul style={{listStyleType:'none', display:'flex' , flexDirection:'column' , justifyContent:'center'}}>
             <li style={{display:'flex',gap:'5px',alignItems:'center'}}> 
                 <div><SchoolIcon style={{paddingTop:'5px'}}/></div> 
-                 <div style={{color:'#E6F1FF'}} >Sophomere at SVNIT</div> 
+                 <div style={{color:'#E6F1FF'}} >Below shown are my LinkedIn and GitHub Ids</div> 
             </li>
-            <li style={{color:'#E6F1FF'}} >This is me Dhrumil Panchal. i enjoy discussing new projects and new challenges</li>
+           
             <li>
                {/* <Link  to={"www.linkedin.com/in/dhrumil-panchal-4b8411288"} ><LinkedInIcon/></Link>  //wrong way to write */}
                <a 

@@ -43,7 +43,7 @@ const Navbar = () => {
       </nav> */}
       <div>
         <Link to={"/"} >
-          <h1 style={{fontFamily:'outfit'}}>Portfolio</h1>
+          <h1 style={{fontFamily:'outfit'}}> Dhrumil's Portfolio</h1>
         </Link>
       </div>
 

@@ -18,3 +18,33 @@
     font-size: 25px;
     color: white;
 }
+
+.hero2 {
+  width: 100vw;
+  height: 40vh;
+   min-height: 300px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #050b18,
+    #0b1228
+  );
+
+  color: white;
+  text-align: center;
+}
+
+.hero2-text h1 {
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+.hero2-text p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.85;
+}

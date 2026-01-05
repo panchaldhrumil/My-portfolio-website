@@ -40,10 +40,10 @@ const Herosection = () => {
       <div className="hero-overlay"></div>
       <div style={{ display: 'flex', position: 'absolute', top: '170px', width: '100vw', alignItems: 'center', flexDirection: 'column', gap: '20px' }}>
         <div className="img1" >
-          <div  style={{ display: 'flex' , gap:'20px' ,  justifyContent: 'center', alignitmes: 'center'  }}>
-            <div  styel={{ display: 'felx', felxdirection: 'column', justifyContent: 'center', alignitmes: 'center', position:'relative' , top:'50px' }}>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignitmes: 'center' }}>
+            <div styel={{ display: 'felx', felxdirection: 'column', justifyContent: 'center', alignitmes: 'center', position: 'relative', top: '50px' }}>
               <h1 style={{ color: 'beige' }} > Hello,  </h1>
-              <h2> I'm Dhrumil Panchal </h2>
+              <h2>I'm Dhrumil Panchal</h2>
             </div>
             <div >
               <img src={professional} className='mypic blackbac' alt="My_Pic" />
@@ -51,10 +51,9 @@ const Herosection = () => {
           </div>
 
 
-          <p className='psize' style={{ fontSize: '20px' }}>
-            And I'm a Developer
-            "Passionate about building innovative solutions, I turn ideas into reality with clean, efficient code, always striving to push boundaries in web development."
-            Expertise in website development, frontend design, and crafting seamless digital experiences...
+          <p className="psize hero-text" style={{}}>
+             A B.Tech Electrical Engineering student at NIT Surat with a strong inclination toward data-driven problem solving. I’m building a solid foundation in Data Science and Data Analytics, with hands-on experience in Python, data structures, data analysis, machine learning and web-based solutions. To know more, kindly visit the{" "} <Link to="/About" style={{fontSize: '20px', textDecoration: 'underline'}} className="about-link"> About </Link> page.
+
           </p>
 
         </div>

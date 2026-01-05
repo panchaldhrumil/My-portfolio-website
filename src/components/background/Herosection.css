@@ -81,3 +81,21 @@
      /* border-radius: 10px; */
      
 /* }  */
+
+.hero-text {
+  max-width: 900px;          /* keeps paragraph readable */
+  text-align: center;        /* aligns text nicely */
+  line-height: 1.7;
+  font-size: 18px;
+  color: #eaeaea;
+}
+
+.about-link {
+  color: #6c7cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-link:hover {
+  text-decoration: underline;
+}

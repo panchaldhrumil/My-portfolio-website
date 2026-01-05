@@ -10,7 +10,7 @@ const About = () => {
     <div>
       {/* <h3>About</h3> */}
       <Navbar />
-      <Herosection2 heading="WHO AM I" style={{ backgroundColor:'#172A45' }} />
+      {/* <Herosection2 heading="WHO AM I" style={{ backgroundColor:'#172A45' }} /> */}
       <Aboutcontent />
       <Footer />
      
