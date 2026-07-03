@@ -68,7 +68,7 @@ const Herosection = () => {
             animate="visible"
             variants={fadeUp}
           >
-            Passionate about building intelligent software that solves real-world problems through AI, data, and scalable backend systems. Currently exploring machine learning, data analytics, and full-stack development while continuously strengthening my problem-solving skills. Visit the{' '}
+            Passionate about building intelligent software that solves real-world problems through AI, data, and scalable systems. Currently exploring Agentic AI,machine learning, data analytics, and full-stack development while continuously strengthening my problem-solving skills. Visit the{' '}
             <Link to="/About" className="hero-inline-link">About</Link> page to know more.
           </motion.p>
 
