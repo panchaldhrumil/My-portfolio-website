@@ -28,7 +28,7 @@ const achievementsData = [
     title: 'Fintech Olympiad — National Finalist',
     description:
       'Qualified as a National Finalist in the FinTech Olympiad conducted by IFTA, competing solo among thousands of participants nationwide. Out of all entries, only 125 candidates reached the national finalist stage.',
-    date: '2024',
+    date: '2025',
     category: 'Competition',
     images: [ifta1, ifta2, ifta3],
   },
@@ -36,7 +36,7 @@ const achievementsData = [
     title: 'BRANDX Business Case Competition',
     description:
       'Participated in the BRANDX Business Case Competition, tackling a real-world strategic marketing challenge. Presented data-driven recommendations and creative go-to-market strategies under time pressure.',
-    date: '2024',
+    date: '2026',
     category: 'Competition',
     images: [brandx],
   },
@@ -68,7 +68,7 @@ const achievementsData = [
     title: 'Model United Nations (MUN)',
     description:
       'Participated in Model United Nations, representing a country and debating global issues in a simulated UN environment. Honed diplomatic communication, research, and negotiation skills while engaging with delegates from diverse backgrounds.',
-    date: '2024',
+    date: '2025',
     category: 'Leadership',
     images: [mun1, mun2],
   },
