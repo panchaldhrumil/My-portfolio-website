@@ -15,6 +15,13 @@ import hack1 from '../../assets/achivements/hacktober_fest/Hacktoberfest1.jpeg';
 import hack2 from '../../assets/achivements/hacktober_fest/Hacktoberfest2.jpeg';
 import hack3 from '../../assets/achivements/hacktober_fest/Hacktoberfest3.jpeg';
 
+import odoo1 from '../../assets/achivements/Odoo/odoo business case challenge.jpeg';
+
+import mun1 from '../../assets/achivements/mun/mun1.jpg';
+import mun2 from '../../assets/achivements/mun/mun2.jpeg';
+
+import iiie1 from '../../assets/achivements/green energy/WhatsApp Image 2026-07-03 at 00.30.56.jpeg';
+
 // ── Data ──────────────────────────────────────────────────────────────────────
 const achievementsData = [
   {
@@ -40,6 +47,30 @@ const achievementsData = [
     date: 'October 2025',
     category: 'Open Source',
     images: [hack1, hack2, hack3],
+  },
+  {
+    title: 'Odoo × SVNIT Business Challenge',
+    description:
+      'Participated in the Odoo × SVNIT Business Challenge, demonstrating strong business acumen and strategic problem-solving in a competitive environment. Gained hands-on exposure to Odoo\'s ERP ecosystem and enterprise-level business process optimization.',
+    date: 'April 2026',
+    category: 'Competition',
+    images: [odoo1],
+  },
+  {
+    title: 'IIIE Case Study Presentation — 2nd Position',
+    description:
+      'Secured 2nd Position in the Case Study Presentation Competition organized by the Indian Institution of Industrial Engineering (IIIE) Student Chapter at its 69th Foundation Day. Developed and presented a comprehensive case study analysis, showcasing analytical thinking and effective communication skills while competing against peers from diverse engineering backgrounds.',
+    date: '2025',
+    category: 'Competition',
+    images: [iiie1],
+  },
+  {
+    title: 'Model United Nations (MUN)',
+    description:
+      'Participated in Model United Nations, representing a country and debating global issues in a simulated UN environment. Honed diplomatic communication, research, and negotiation skills while engaging with delegates from diverse backgrounds.',
+    date: '2024',
+    category: 'Leadership',
+    images: [mun1, mun2],
   },
 ];
 
