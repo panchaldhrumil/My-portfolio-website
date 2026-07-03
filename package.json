@@ -1,6 +1,5 @@
 {
-  "homepage": "https://dhrumilpanchal.github.io/My-portfolio-website",
-
+  "homepage": "https://panchaldhrumil.github.io/My-portfolio-website",
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
@@ -11,14 +10,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
- "deploy": "gh-pages -d dist"
-
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.1",
     "@mui/material": "^6.4.1",
+    "framer-motion": "^12.42.2",
     "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

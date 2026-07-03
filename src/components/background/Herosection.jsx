@@ -1,70 +1,91 @@
-import './Herosection.css'
-import React from 'react'
-import backgroundimg from '../../assets/background_img.jpg'
+import './Herosection.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import professional from '../../assets/professional_pic.jpg'
+import { motion } from 'framer-motion';
+import professional from '../../assets/professional_pic.jpg';
 
-
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, delay, ease: 'easeOut' },
+  }),
+};
 
 const Herosection = () => {
   return (
-    // <div className='container'>
-    //   {/* <div> 
-    //   <img src={backgroundimg} alt="background" style={{overflow:'hidden',width:'100vw'}} />
-    //   </div> */}
-    //   <div style={{display:'flex',position:'absolute',top:'270px',width:'100vw', alignItems:'center' , flexDirection:'column' , gap:'20px'}}>
-    //     <div className="img1">
-    //       <div>
-    //          <h1 style={{color:'beige'}} > Hello,  </h1>
-    //          <h3> I'm Dhrumil Panchal </h3>   
-    //       </div>
-    //       <div >
-    //         <img src={professional} className='mypic' alt="My_Pic" />
-    //       </div>
-    //     </div>
-
-    //         <p className='psize' style={{fontSize:'15px'}}>
-    //                  And I'm a Developer
-    //               "Passionate about building innovative solutions, I turn ideas into reality with clean, efficient code, always striving to push boundaries in web development."
-
-    //                      Expertise in website development, frontend design, and crafting seamless digital experiences...
-    //         </p>
-    //     <div style={{gap:'10px',display:'flex',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
-    //       <Link className='btn' to='/project'>Projects</Link>
-    //       <Link className='btn' to='/contact'>Contact</Link>
-    //     </div>
-    //   </div>
-
-    // </div>
     <div className="hero-container">
-      <div className="hero-overlay"></div>
-      <div style={{ display: 'flex', position: 'absolute', top: '170px', width: '100vw', alignItems: 'center', flexDirection: 'column', gap: '20px' }}>
-        <div className="img1" >
-          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignitmes: 'center' }}>
-            <div styel={{ display: 'felx', felxdirection: 'column', justifyContent: 'center', alignitmes: 'center', position: 'relative', top: '50px' }}>
-              <h1 style={{ color: 'beige' }} > Hello,  </h1>
-              <h2>I'm Dhrumil Panchal</h2>
-            </div>
-            <div >
-              <img src={professional} className='mypic blackbac' alt="My_Pic" />
-            </div>
-          </div>
+      <div className="hero-overlay" />
 
+      <div className="hero-content">
+        {/* Photo */}
+        <motion.div
+          className="hero-photo-wrap"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          <img src={professional} className="mypic" alt="Dhrumil Panchal" />
+        </motion.div>
 
-          <p className="psize hero-text" style={{}}>
-             A B.Tech Electrical Engineering student at NIT Surat with a strong inclination toward data-driven problem solving. I’m building a solid foundation in Data Science and Data Analytics, with hands-on experience in Python, data structures, data analysis, machine learning and web-based solutions. To know more, kindly visit the{" "} <Link to="/About" style={{fontSize: '20px', textDecoration: 'underline'}} className="about-link"> About </Link> page.
+        {/* Text block */}
+        <div className="hero-text-block">
+          <motion.p
+            className="hero-greeting"
+            custom={0.1}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            Hello, I'm
+          </motion.p>
 
-          </p>
+          <motion.h1
+            className="hero-name"
+            custom={0.25}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            Dhrumil Panchal
+          </motion.h1>
 
-        </div>
+          <motion.p
+            className="hero-role"
+            custom={0.4}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            B.Tech EE @ NIT Surat
+          </motion.p>
 
-        <div style={{ gap: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
-          <Link className='btn' to='/project'>Projects</Link>
-          <Link className='btn' to='/contact'>Contact</Link>
+          <motion.p
+            className="hero-bio"
+            custom={0.55}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            Passionate about building intelligent software that solves real-world problems through AI, data, and scalable backend systems. Currently exploring machine learning, data analytics, and full-stack development while continuously strengthening my problem-solving skills. Visit the{' '}
+            <Link to="/About" className="hero-inline-link">About</Link> page to know more.
+          </motion.p>
+
+          <motion.div
+            className="hero-cta"
+            custom={0.7}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            <Link className="btn" to="/project">View Projects</Link>
+            <Link className="btn-outline" to="/contact">Contact Me</Link>
+          </motion.div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Herosection
+export default Herosection;

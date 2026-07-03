@@ -1,96 +1,101 @@
-import React from 'react'
-// import Home  from "./navbar_components/Home";
-// import About from './navbar_components/About';
-// import Project from './navbar_components/Project';
-// import Contact from './navbar_components/Contact';
-import { useState,useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars } from 'react-icons/fa';  //for to use react icons we have to install icon library via "npm i react-icons"
-import { FaTimes } from "react-icons/fa"; // A clean "times" (×) symbol
-import './navbar_components/Navbar.css'
-
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import './navbar_components/Navbar.css';
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const [islaptopview , setislaptopview]=useState(window.innerWidth>=1024) ;
-  const [click,setclick]=useState(true) ;
-
- const handleclick=()=>{setclick(!click)} ;
-  
-
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      setislaptopview(window.innerWidth >= 1024);  //we just have made one function which will update the value of "islaptopview"
+      if (window.innerWidth >= 768) setMenuOpen(false);
     };
-
-    window.addEventListener("resize", handleResize); // we have applied the "resize" "eventlistener" on window so whenever window size is being changed the "handlesize" function will be triggered 
-
-    return () => {
-      window.removeEventListener("resize", handleResize); //after thriggering the handlesize function, it will return the new value of "islaptopview"
-    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Scroll-aware background
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { label: 'Home',         to: '/' },
+    { label: 'About',        to: '/about' },
+    { label: 'Projects',     to: '/project' },
+    { label: 'Achievements', to: '/achievements' },
+    { label: 'Contact',      to: '/contact' },
+  ];
+
   return (
-    <div style={{display:'flex' ,padding:'10px', justifyContent:'space-between' ,height:'6%',width:'100vw',position:'fixed',zIndex:'20',backgroundColor:'#0A192F' , top:'0px'  }}  >
-      {/* <nav style={{width:'100%' , height:'10%' ,position:'fixed',top:'0px' , display:'flex',justifyContent:'space-around' ,margin:'0px'  }} >
-          <div className="left" style={{position:'fixed',left:'15px',margin:'0px'}}><h3>Portfolio</h3></div>
-          <div className="right" style={{display:'flex',marginTop:'0px',marginRight:'200px',columnGap:'15px' ,position:'fixed' ,right:'20px' }} >
-         <Link to="/Home"> Home </Link>  
-         <Link to="/About"> About </Link>   
-         <Link to="/Project"> Project </Link>  
-         <Link to="/Contact"> Contact </Link>   
-          </div>
-      </nav> */}
-      <div>
-        <Link to={"/"} >
-          <h1 style={{fontFamily:'outfit',fontSize: '35px', color: '#E6F1FF '}}>Dhrumil's Portfolio</h1>
-        </Link>
-      </div>
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      {/* Logo */}
+      <Link to="/" className="navbar__logo">
+        Dhrumil<span className="navbar__logo-accent">.</span>
+      </Link>
 
-      <div style={{ display:'flex',gap:'20px',marginRight:'20px' }}>
+      {/* Desktop links */}
+      <ul className="navbar__links">
+        {navLinks.map(({ label, to }) => (
+          <li key={label}>
+            <NavLink
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) =>
+                `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+              }
+            >
+              {label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
 
-      <ul className={islaptopview ?'flex':(click?'beautify row':'beautify column')} style={{ listStyleType:'none',gap:'20px',marginRight:'20px',marginTop:'13px'}} >
-      {/* <ul className='navul' > */}
-       
-       <div >
-         <Link to={"/"}>
-           <h3 style={{fontWeight:'bold',color: '#E6F1FF '}}>Home</h3>
-         </Link>
-       </div>
+      {/* Hamburger */}
+      <button
+        className="navbar__hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        {menuOpen
+          ? <FaTimes size={20} color="#38bdf8" />
+          : <FaBars size={20} color="#e2e8f0" />
+        }
+      </button>
 
-       <div>
-         <Link to={"/Contact"}>
-           <h3 style={{fontWeight:'bold',color: '#E6F1FF '}} >Contact</h3>
-         </Link>
-       </div>
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="navbar__mobile"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.22 }}
+          >
+            {navLinks.map(({ label, to }) => (
+              <NavLink
+                key={label}
+                to={to}
+                end={to === '/'}
+                className={({ isActive }) =>
+                  `navbar__mobile-link ${isActive ? 'navbar__mobile-link--active' : ''}`
+                }
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </NavLink>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
 
-       <div>
-         <Link to={"/About"}>
-           <h3 style={{fontWeight:'bold',color: '#E6F1FF '}} >About</h3>
-         </Link>
-       </div>
-
-       <div>
-         <Link to={"/Project"}>
-           <h3 style={{fontWeight:'bold',color: '#E6F1FF '}} >Project</h3>
-         </Link>
-       </div>
-
-     </ul>
-     
-
-   { islaptopview?null: (click? <div className='Hamburger' onClick={handleclick} > <FaBars size={20} style={{color:"white"}} /> </div> :
-                                <div className='Hamburger' onClick={handleclick} > <FaTimes size={20} style={{color:"red"}} /> </div>  ) }
-
-       
-      </div>
-
-     
-
-    </div>
-  )
-}
-
-
-export default Navbar
-
+export default Navbar;

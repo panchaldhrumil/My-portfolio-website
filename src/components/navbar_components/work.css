@@ -1,36 +1,383 @@
-.card{
-    width: 400px;
-    height: 500px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    border: 2px solid white;
-    background-color: rgb(31, 41, 70);
-    /* position: absolute; */
+/* ===== WORK PAGE ===== */
+.work-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 48px 24px 80px;
+  background: #060d1a;
 }
 
-    /* work.css */
-.workcontainer {
-    display: flex;
-    /* flex-wrap: wrap; */
-    gap: 20px; /* Add spacing between cards */
-    margin: 20px auto; /* Add vertical spacing */
-    justify-content: start; 
-    align-items: center; /* Align items at the top */
-     min-height: fit-content;/* Ensure the container takes up space */
-    /* background-color: rgb(13, 14, 13); */
-    align-items: center;
-    position: absolute;
-    top:40% ;
-    padding-left: 110px;
+.work-section__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
 
-    
+.work-section__title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.work-section__title::after {
+  content: '';
+  display: block;
+  margin: 10px auto 0;
+  width: 48px;
+  height: 3px;
+  background: #38bdf8;
+  border-radius: 2px;
+}
+
+.work-section__subtitle {
+  margin-top: 14px;
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* ── Card Grid ── */
+.workcontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(56,189,248,0.3);
+}
+
+/* Image slider area */
+.card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #0a1628;
+  flex-shrink: 0;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__img {
+  transform: scale(1.04);
+}
+
+/* Slider nav buttons */
+.card__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.card__nav:hover { background: rgba(56,189,248,0.45); }
+.card__nav--left  { left: 8px; }
+.card__nav--right { right: 8px; }
+
+/* Dot indicators */
+.card__dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+.card__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.card__dot--active {
+  background: #38bdf8;
+  transform: scale(1.3);
+}
+
+/* Card body */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 10px;
+}
+
+.card__title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #f1f5f9;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.card__desc {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #64748b;
+  flex: 1;
+  text-align: left;
+}
+
+/* Tech tags */
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.card__tag {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', monospace;
+  letter-spacing: 0.3px;
+  color: #38bdf8;
+  background: rgba(56,189,248,0.1);
+  border: 1px solid rgba(56,189,248,0.2);
+  border-radius: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Actions */
+.card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.card__btn {
+  font-size: 13px;
+  padding: 7px 16px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .workcontainer {
+    grid-template-columns: 1fr;
+    max-width: 480px;
   }
-  
-.card img{
-    width:300px ;
-    height:200px ;
-    /* z-index: 10; */
+}
+
+/* ── Expand hint (visible on hover) ── */
+.card__expand-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+
+.card__img-wrap:hover .card__expand-hint {
+  opacity: 1;
+}
+
+/* make the image show a pointer so user knows it's clickable */
+.card__img {
+  cursor: zoom-in;
+}
+
+/* ── LIGHTBOX ──────────────────────────────────────────────── */
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.93);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image wrapper — scrollable if zoomed in */
+.lb-img-wrap {
+  max-width: 90vw;
+  max-height: 84vh;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.lb-img {
+  display: block;
+  max-width: 88vw;
+  max-height: 80vh;
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  user-select: none;
+  border-radius: 6px;
+}
+
+/* Close button */
+.lb-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #e2e8f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2001;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lb-close:hover {
+  background: rgba(239, 68, 68, 0.45);
+  color: white;
+}
+
+/* Prev / Next arrows */
+.lb-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2001;
+  transition: background 0.2s;
+}
+
+.lb-nav:hover   { background: rgba(56,189,248,0.35); }
+.lb-nav--left   { left: 20px; }
+.lb-nav--right  { right: 20px; }
+
+/* Image counter */
+.lb-counter {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  z-index: 2001;
+  letter-spacing: 1px;
+}
+
+/* Zoom controls */
+.lb-zoom {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2001;
+}
+
+.lb-zoom button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.lb-zoom button:hover { background: rgba(56,189,248,0.35); }
+
+/* Dot strip */
+.lb-dots {
+  position: fixed;
+  bottom: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2001;
+}
+
+.lb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.lb-dot--active {
+  background: #38bdf8;
+  transform: scale(1.4);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .lb-nav--left  { left: 8px; }
+  .lb-nav--right { right: 8px; }
+  .lb-img { max-width: 94vw; max-height: 70vh; }
 }
 

@@ -1,50 +1,68 @@
-.text{
-    position: absolute;
-    top: 20%;
-    z-index: 10;
-    width: 100vw;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.text h1{
-    font-weight: 900;
-    font-size: 50px;
-    color: white;
-}
-
-.text p{
-    font-size: 25px;
-    color: white;
-}
-
+/* ===== HERO2 — page banner ===== */
 .hero2 {
   width: 100vw;
-  height: 40vh;
-   min-height: 300px;
+  padding: calc(var(--nav-height, 64px) + 40px) 24px 48px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   background: linear-gradient(
-    135deg,
-    #050b18,
-    #0b1228
+    160deg,
+    #060d1a 0%,
+    #0c1630 50%,
+    #060d1a 100%
   );
 
-  color: white;
-  text-align: center;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid overlay */
+.hero2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.hero2-text {
+  position: relative;
+  z-index: 1;
 }
 
 .hero2-text h1 {
-  font-size: 48px;
-  letter-spacing: 2px;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #f1f5f9;
+  text-align: center;
+}
+
+.hero2-text h1 span {
+  color: #38bdf8;
 }
 
 .hero2-text p {
-  font-size: 18px;
-  margin-top: 10px;
-  opacity: 0.85;
+  font-size: 16px;
+  margin-top: 12px;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Legacy .text class (keep for compatibility) */
+.text {
+  position: absolute;
+  top: 20%;
+  z-index: 10;
+  width: 100vw;
+  text-align: center;
 }
